@@ -1,7 +1,3 @@
-cmake_minimum_required(VERSION 3.15)
-set(CMAKE_CXX_STANDARD 20)
-project(test)
-
 set(test_dir "${CMAKE_SOURCE_DIR}/bin_test/$<CONFIG>")
 set(src_source
     "main.cpp"
@@ -14,6 +10,19 @@ target_include_directories(${exe} PRIVATE
     ${project_dir}
 )
 
+
+target_link_libraries(${exe} PUBLIC
+    util_lib
+)
+
 set_target_properties(${exe} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${test_dir}
+)
+
+
+target_include_directories(${exe} PRIVATE
+    ${LUA_INCLUDE_DIR}
+)
+target_link_libraries(${exe} PUBLIC
+    ${LUA_LIB}
 )

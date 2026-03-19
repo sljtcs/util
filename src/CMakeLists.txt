@@ -1,11 +1,10 @@
-# set(lib "src_lib")
-# add_subdirectory(cam_util)
+# add_subdirectory(sample)
+# add_subdirectory(feature)
 
-# add_library(${lib} INTERFACE)
-# target_link_libraries(${lib} INTERFACE
-#     cam_util_lib
-# )
-
-# target_include_directories(${lib} INTERFACE
-#     ${opencv_include_dir}
+# add_library(ydmf_component_lib INTERFACE)
+# target_sources(ydmf_component_lib
+#     PUBLIC
+#         $<TARGET_OBJECTS:ydmf_component_engine_obj>
+#         $<TARGET_OBJECTS:ydmf_component_solver_obj>
+#         $<TARGET_OBJECTS:ydmf_component_pipeline_obj>
 # )
