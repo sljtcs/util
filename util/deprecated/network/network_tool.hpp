@@ -4,7 +4,7 @@
 #include <sstream>
 #include <iomanip>
 
-namespace network_util
+namespace infra_network
 {
     class UrlConvert
     {

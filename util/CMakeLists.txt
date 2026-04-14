@@ -1,7 +1,7 @@
 set(lib "util_lib")
-# add_subdirectory(audio_util)
+add_subdirectory(infra)
 
 add_library(${lib} INTERFACE)
-# target_link_libraries(${lib} INTERFACE
-#     audio_util_lib
-# )
+target_link_libraries(${lib} INTERFACE
+    infra_lib
+)

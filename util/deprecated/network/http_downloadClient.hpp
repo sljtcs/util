@@ -14,7 +14,7 @@
 
 #define DEBUG_HTTP_DOWNLOAD_CLIENT 1
 
-namespace network_util::http
+namespace infra_network::http
 {
 
 class DownloadClient
@@ -54,7 +54,7 @@ public:
 
     void downloadFile(const std::string& url, const std::filesystem::path& saveDir)
     {
-        const std::string& fileName = network_util::UrlConvert::extractFileName(url);
+        const std::string& fileName = infra_network::UrlConvert::extractFileName(url);
         std::filesystem::path savePath = saveDir/fileName;
         if(std::error_code ec; !std::filesystem::create_directories(savePath.parent_path(), ec) && ec) return;
 
@@ -67,7 +67,7 @@ public:
 
         auto item = std::make_shared<Item>();
         item->name = savePath.filename().string();
-        item->url = network_util::UrlConvert::urlEncode(url);
+        item->url = infra_network::UrlConvert::urlEncode(url);
         item->savePath = savePath;
 
         downloadList.push_back(item);
